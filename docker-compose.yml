@@ -22,4 +22,4 @@ services:
       - mongo
     environment:
       DATABASE_HOST: postgres
-      MONGO_URI: mongodb+srv://rupanshi2502:Oneplus99@cluster0.5b3bkic.mongodb.net/healthcare_billing
+      MONGO_URI: mongodb://mongo:27017/healthcare_config
