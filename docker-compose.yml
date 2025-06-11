@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: dbuser
+      POSTGRES_PASSWORD: dbpass
+      POSTGRES_DB: healthcare_billing
+    ports:
+      - '5432:5432'
+
+  mongo:
+    image: mongo
+    ports:
+      - '27017:27017'
+
+  app:
+    build: .
+    ports:
+      - '8000:8000'
+    depends_on:
+      - postgres
+      - mongo
+    environment:
+      DATABASE_HOST: postgres
+      MONGO_URI: mongodb+srv://rupanshi2502:Oneplus99@cluster0.5b3bkic.mongodb.net/healthcare_billing
